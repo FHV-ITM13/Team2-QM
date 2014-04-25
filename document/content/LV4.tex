@@ -1,2 +1,62 @@
 \chapter{LV 4 am 25.04.2014}
-ab Seite 107/108
+Ab Seite 109
+ÜBERSCHRIFTEN!?!?
+\section{Dokumentation und Verwaltung}
+\subsection{Pflichtenheft}
+Das Pflichtenheft dient zur Zusammenstellung der vollständigen und detaillierten Benutzeranforderungen und Systemanforderung. Wichtig ist, dass das Pflichtenheft vollständig ist, wobei dieses Ziel nur sehr schwer zu erreichen ist. Wenn während der Entwicklung allerdings festgestellt wird, dass es unvollständig oder falsch ist, dann darf das Pflichtenheft nicht mehr geändert werden. Das ist durch ein EU-Wettbewerbsgesetz geregelt. 
+\linebreak 
+TODO: Synoyme und nur ein Dokument wichtig?
+Das Pflichtenheft wird für die Kunden, Manager, Entwickler, Tester, Warter und die Juristen geschrieben.
+\linebreak
+Ein beliebter Trick ist es, das Pflichtenheft via E-Mail abzuändern. Wenn diese Änderung allerdings nicht innerhalb von 14 Tagen widerrufen wird, dann ist sie Bestandteil vom Vertrag und muss entwickelt werden. Das gleiche gilt für Besprechungen, die schriftlich Protokolliert werden. 
+\linebreak
+Im Pflichtenheft werden die Klassifizierungen der Informationen hinsichtlich der Anforderungen (mandatory requirements; was muss das fertige System können), Wünsche (optional requirements; werden positiv betrachetet im fertigen System), informative Bestandteile (dienen zum besseren Verständnis, sind unverbindliche Informationen), Warnungen (Abbildungen, Tabellen, Anhänge als informative Bestandteile). Um informative Bestandteile wie ein Anhang zu einem vertraglicher Bestandteil zu machen, muss es mit Normative gekennzeichnet werden.
+
+Glossar!:
+Qualitative Anforderung: es hat die Eigenschaft oder hat sie nicht
+Quantitative Anforderung: ist eine messbare Eigenschaft z.B. die Antwortzeit beträgt max. 1 Sekunde
+\linebreak
+Der Aufbau vom Pflichtenheft kann auch nach vordefinierten Normen/Standards wir dem IEEE/ANSI 830-1998 geschrieben werden. 
+\linebreak
+Man kann im Pflichtenheft auch festlegen, dass zum Beispiel für die Realisierung die Programmiersprache C nach ISO Standard verwendet werden muss. Dies ist dann ein Bestandteil des Vertrags.
+
+
+
+\section{Spezifikation kritischer Systeme}
+Kritische Systeme sind jene, bei deren Benutzung Gefahr besteht - zum Beispiel ein GPS-System oder ein Defibrillator in der Medizintechnik.
+
+\subsection{Anforderungen an kritische Systeme}
+TODO umschreiben - nicht ganz deutsch ne...
+
+Zu den funktionalen Anforderungen gehören die Funktionen der Fehlerprüfung, Funktionen zur Wieerherstellung im Fehlerfall und Aspekte zum Schutz gegen Systemausfälle. Zu den nichtfunktionale Anofrderungen gehören die Systemzuverlässigkeit und die Systemverfügbarkeit. Es werden auch Negativanforderungen festgelegt, die die Beschreibung von Verhalten, welche das System auf keinen Fall zeigen darf, oder Anforderungen an die funktionalen Anforderungen. Für letzteres gibt es Beispiele aus der Raumfahrt, die da wären, dass das Spaceshuttle auf keinen Fall schneller als 800 km/h fliegen darf.
+
+\subsection{Risikomanagement}
+Beim Risikomanagement werden Gefahren gefunden/bestimmt, klassifiziert und Festlegungen um das Risiko zu verringern getroffen.
+\linebreak
+Prinzipiell gelten Murphy's Gesetze:
+"Alles, was schiefgehen kann, wird irgendwann einmal schiefgehen."
+"Alles, was schiefgehen kann, wird genau dann schiefgehen, wenn es den maximalen Schaden verursacht"
+\linebreak
+Das Ziel beim Risikomanagement ist es, Risiken zu erkennen. Risiken entstehen prinzipiell dort, wo Systemkomponenten aufeinandertreffen oder die Umwelt Einflüsse auf das System hat. Entgegenwirken kann man durch erfahrene Entwickler, Berater oder Fachleute des Anwendungsgebiets (siehe witziges Beispiel Ölschraube bei Scania).
+\linebreak
+Die Unfallwahrscheinlichkeit, Schadenswahrscheinlichkeit und Schadenshöhe muss analysiert werden. Durch die Klassifizierung kann man dann abschätzen, ob ein Risiko vernachlässigbar ist oder ob man es unannehmbar ist. Unannehmbare Risiken verursachen großen Schaden, haben eine hohe Schadenswahrscheinlichkeit und sollten unter allen Umständen versucht werden zu vermeiden.
+\linebreak
+Um herauszufinden woher ein Risiko kommt wird es zerlegt um die Ursache zu entdecken. Hierfür gibt es viele verschiedene Techniken wie Reviews, Checklisten, Petri-Netze, Fehlerbaum etc.
+\linebreak
+TODO: Seite 128 Risikominimierung
+Um die Risiken minimieren zu können, werden in der Praxis die Risikovermeidungs-, Risiko-Erkennungs- und sBeseitigungens- sowie die Schadensbegrenzungsstrategie kombiniert.
+
+\subsection{Betriebssicherheit}
+Wichtig ist es das System in hinsicht auf dessen Betrieb zu sichern. Vor allem Schutzmechanismen und Ausfallsysteme sind von großer Bedeutung. Auch die Betriebssicherheit im Laufe des Produktlebenszyklus ist zu beachten. Um Fehler klassifizieren zu können, gibt es verschiedene Klassen. Klasse 1 bis Klasse 5 werden dabei in der Software Industrie als Standard angesehen.
+
+TODO Klassen beschreiben
+
+\subsection{Systemsicherheit}
+Bei der Systemsicherheit spielen vor allem die Bedrohungen eine wichtige Rolle. Die Bedrohungen können dabei in Kategorien unterteilt werden. (Direkte Bedrohungen, Indirekte Bedrohungen, etc.). Vor allem die Monopolartige Stellung einiger Unternehme führt dazu das Sicherheitslücken im großen Stil auftreten können. Zudem gibt es keine 100% Sicherheit, es gibt nur gute Sicherheitsmethoden. Bei der Systemsicherheit geht es vorallem um das Vermeiden von Schäden durch unberechtigte Personen. 
+
+\subsection{Zuverlässigkeit}
+Damit ein System zuverlässig ist, müssen sowohl die Hardware als auch die Software und die Benutzer zuverlässig sein. Die Zuverlässigkeit einer Software ist messbar. Dabei werden Messwerte bezüglich Systemfehler, Zeit zwischen Systemfehlern und ähnlichem verwendet. Vor allem die Zeit zwischen Systemfehler und Wiederverfügbarkeit des Systems ist wichtig für die Zuverlässigkeit eines Systems.
+
+TODO 143
+
+\subsection{Formale Spezifikationsmethoden}
