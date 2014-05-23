@@ -2,13 +2,13 @@
 \section{Besprechung Hausaufgabe - Anforderungen}
 \subsection{Funktionale Anforderungen}
 \begin{itemize}
-\item Ergebnis x element R : $ax^2 + bx + c = 0$ %TODO Formel...
+\item Ergebnis x element R : $ax^2 + bx + c = 0$
 \item kein Absturz bei komplexer Lösung
 \item vernünftige Reaktion auf Eingabefehler
 	\begin{itemize}
 		\item a = 0
 		\item unvollständige Eingaben
-		\item $4ac > b^2$ %TODO Formel
+		\item $4ac > b^2$
 	\end{itemize}
 \item relativer max. Rundungsfehler von 0,1\% mit Beweis (für die wirkliche Realisierung darf die Formel nicht 1 zu 1 programmiert werden. In der Realität wird eher eine Newton-Annäherung implementiert).
 \item es gibt immer ein definiertes Ergebnis (Ausnahmebehandlungen)
@@ -25,7 +25,7 @@
 Jetzt soll jeder seine Lösung anhand dieser Anforderungen bewerten. Die Lösung darf auch dahingehend verbessert werden, dass alle Anforderungen erfüllt werden.
 
 \section{Referenz-Architekturen}
-%TODO Wurde in 1 1/2 min abgehandelt... ab seite 34 
+Refernez-Architekturen beschreiben eine Definition typischer Strukturen. Diese sind nicht unbedingt für die Implementierung geeignet.
 
 \begin{itemize}
 \item ISO-OSI-Referenzmodell
@@ -33,49 +33,71 @@ Jetzt soll jeder seine Lösung anhand dieser Anforderungen bewerten. Die Lösung
 \item Schichtenarchitektur 
 \end{itemize}
 
-Verteilte Systeme: Schichtenarchitektur, C/S ... 
+\section{Verteilte Systeme}
+Die Motivation hinter Verteilten Systemen ist vor allem eine bessere Ressourcenteilung. Hier sind Faktoren wie Offenheit, Nebenläufigkeit sowie Skalierbarkeit von enormer Bedeutung. Der Nachteil an solchen Systemen ist deren Komplexität.
 
-Echtzeit-Software etc wurde übersprungen.
-
-\section{Entwicklung - Entwicklung kritischer Systeme}
-Bei der Entwicklung kritischer Systeme, gibt es verschiedene (komplementäre) Strategien.
+Wir haben folgende Varianten für verteilte Systeme kennengelernt
 \begin{itemize}
-\item Fehlervermeidung: zuerst wird überprüft und nicht erst gerechnet, wenn ein Fehler passieren kann
-\item Fehlerentdeckung: ??
-\item Fehlertoleranz: eine Situation, in der z.B. die Berechnung beginnt und während der Berechnung wird eine Fehlersituation erkannt und automatisch behandelt.
+\item Mehrprozessor-Architekturen
+\item Client/Server-Architekturen
+\item Verteilte Objektarchitekturen
+\item Peer-to-Peer-Architekturen
+\item Dienstorientierte Architekturen
 \end{itemize}
 
-Je mehr Fehler behoben werden, umso teurer wird die Software.
+\section{Echtzeit-Software}
+Echtzeitsysteme beschreiben ein Softwaresystem bei welchem die einwandfreie Funktionsweise auch von der Zeit zwischen den Auftreten eines Stimulus und der Durchführung der entsprechenden Antwort abhängig ist. Hierbei wird zwischen einem weichen und einem harten Echtzeitsystem unterschieden.
+
+\section{Bedienoberflächen}
+Bei der Bedieneroberfläche sind drei wichtig Punkte zu beachten. Punkt eins sind die Anforderungen, eine Oberfläche sollte so aufgebaut sein das sie den Anforderungen entspricht. Punkt zwei ist die Gestaltung. Eine Oberfläche sollte nach den wünschen der Anwender gestaltet werden. Punkt drei ist der Entwurfsprozess. Dieser sollte in Zusammenarbeit mit dem Kunden erarbeitet und durchgeführt werden.
+
+\section{Objekt-orientierter Entwurf}
+Der Objekt orientierte Entwurf ist untergliedert in drei Phasen.
+\begin{itemize}
+\item Objekt-orientierte Analyse
+\item Objekt-orientierter Enwurf
+\item Objekt-orientierte Programmierung
+\end{itemize}
+
+\section{Entwicklung - Entwicklung kritischer Systeme}
+Bei der Entwicklung kritischer Systeme, gibt es verschiedene (komplementäre) Strategien. Hierbei spielt vor allem die Erkennung von Fehlern eine große Bedeutung
+\begin{itemize}
+\item Fehlervermeidung
+\item Fehlerentdeckung
+\item Fehlertoleranz
+\end{itemize}
 
 Um Fehler zu erkennen, stehen folgende Techniken zur Verfügung:
+
 \begin{itemize}
-\item verlässliche Softwareprozesse
+\item Verlässliche Softwareprozesse
 \item Qualitätsmanagement
-\item formale Spezifikation
-\item statische Verifikation: mehrere Personen verifizieren
-\item starke Typisierung: Vorteil durch Unterstützung des Compilers
-\item sichere Programmierung: z.B. keine GoTos
-\item Ausnahmebehandlung: nur Sprachen verwenden, die das unterstützen
-\item geschützte Informationen
+\item Formale Spezifikation
+\item Statische Verifikation
+\item Starke Typisierung
+\item Sichere Programmierung
+\item Ausnahmebehandlung
+\item Geschützte Information
 \end{itemize}
 
 \subsection{Fehlervermeidung}
-Die Fehlervermeidung beginnt bereits bei den Anforderungen. Diese müssen genau inspiziert werden (sind sie widersprüchlich?). Auch ein Anforderungsmanagement ist notwendig, da sich Anforderungen ändern.
-
-Ebenfalls wichtig ist, dass mindestens ein Vier-Augen-Prinzip beim Code und Entwurf verfolgt wird. 
-
-Als nächsten Schritt gilt es Tests zu planen und zu managen.
-
-Auch welche Konfigurationen erstellt und ausgeliefert werden, muss klar sein.
+Die Fehlervermeidung beginnt bereits bei den Anforderungen. Diese müssen genau inspiziert werden. Auch ein Anforderungsmanagement ist notwendig, da sich Anforderungen ändern.
+Ebenfalls wichtig ist, dass mindestens ein Vier-Augen-Prinzip beim der Codeimplementierung und dem Entwurf verfolgt wird. Des Weiteren gilt es Tests zu planen und zu managen. Auch welche Konfigurationen erstellt und ausgeliefert werden, muss klar sein.
 
 \subsubsection{Sichere Programmierung}
-Im Rahmen der sicheren Programmierung, sind mögliche Gefahrenquellen Gotos, Rundungsfehler von Gleitkommazahlen, Pointer, dynamische Speicherallokierung, Parallelität, Rekursionen, Interrupts, Vererbung, Aliasing, keine Überprüfung von Arraygrenzen und Konfigurationsdaten. 
+Im Rahmen der sicheren Programmierung, sind mögliche Gefahrenquellen wie zum Beispiel Gotos, Rundungsfehler von Gleitkommazahlen, Pointer, dynamische Speicherallokierung, Parallelität, Rekursionen, Interrupts, Vererbung, Aliasing, sowie keine Überprüfung von Arraygrenzen und Konfigurationsdaten. 
 
 \subsubsection{Ausnahmebehandlung}
 Es sollten prinzipiell nur Sprachen verwendet werden, die eine vernünftige Ausnahmebehandlung bieten. Der Code wird dadurch wartbarer und Fehler lassen sich vermeiden.
 
 \subsection{Fehlertoleranz}
-%TODO: Seite 18
+Es gibt zwei Typen der Fehlererkennung
+\begin{itemize}
+\item vorbeugende Fehlererkennung
+\item rückblickende Fehlererkennung
+\end{itemize}
+
+Ein wichtiges Hilfsmittel dafür stellt die Validierung da. Auch wichtig ist das Fehler reproduzierbar sind, sowie das ein System im Fehlerfall wiederhergestellt werden kann.  
 
 
 \subsubsection{Fehlertolerante Architekturen}
@@ -93,4 +115,21 @@ Oftmals wird in der Praxis das Entwicklerteam nach dem Release auf ein neues Pro
 Ebenfalls wichtige Einflussgrößen sind die Anzahl und Komplexität der Schnittstellen, die Anzahl der veränderlichen Anforderungen und die Geschäftsprozesse, in denen das system verwendet wird.
 
 \subsection{Weiterentwicklungsprozesse}
+Die hier angeführt Grafik verdeutlicht einen Prozess zur Software Weiterentwicklung. Es zeigt den Prozess von Sommerville 
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.5]{document/graphics/Weiterentwicklungsprozess.png} 
+\caption{Grundprozesse nach Sommerville}
+\end{figure}
+
+Bei der Weiterentwicklung ist vor allem das Ermitteln von Änderungen ein wichtiges Thema 
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.5]{document/graphics/Aenderungsermittlungsprozess.png} 
+\caption{Änderungsermittlungsprozess nach Sommerville}
+\end{figure}
+
+Dabei ist zu beobachten, dass es manchmal von nöten ist schnell Änderungen durchzuführen. Hierbei helfen natürlich gute Prozesse für die Weiterentwicklung.
+
 Seite 35-39  (excl. Reengineering)
