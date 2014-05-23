@@ -1,0 +1,96 @@
+\chapter{LV 5 am 23.05.2014}
+\section{Besprechung Hausaufgabe - Anforderungen}
+\subsection{Funktionale Anforderungen}
+\begin{itemize}
+\item Ergebnis x element R : $ax^2 + bx + c = 0$ %TODO Formel...
+\item kein Absturz bei komplexer Lösung
+\item vernünftige Reaktion auf Eingabefehler
+	\begin{itemize}
+		\item a = 0
+		\item unvollständige Eingaben
+		\item $4ac > b^2$ %TODO Formel
+	\end{itemize}
+\item relativer max. Rundungsfehler von 0,1\% mit Beweis (für die wirkliche Realisierung darf die Formel nicht 1 zu 1 programmiert werden. In der Realität wird eher eine Newton-Annäherung implementiert).
+\item es gibt immer ein definiertes Ergebnis (Ausnahmebehandlungen)
+\item keine Endlosschleife (wenn Newton angewendet wird, dann braucht es eine vernünftige Abbruchbedingung)
+\item Zeitbedarf max 1 msec
+	\begin{itemize}
+		\item CPU der Ver
+		\item Rechner/Prozessor
+		\item max. 2x SQRT der Standardimplementierung
+	\end{itemize}
+\item Signatur: Name, Parameter, Ergebnistyp
+\end{itemize}
+
+Jetzt soll jeder seine Lösung anhand dieser Anforderungen bewerten. Die Lösung darf auch dahingehend verbessert werden, dass alle Anforderungen erfüllt werden.
+
+\section{Referenz-Architekturen}
+%TODO Wurde in 1 1/2 min abgehandelt... ab seite 34 
+
+\begin{itemize}
+\item ISO-OSI-Referenzmodell
+\item ECMA-Toaster (für CASE-Umgebungen)
+\item Schichtenarchitektur 
+\end{itemize}
+
+Verteilte Systeme: Schichtenarchitektur, C/S ... 
+
+Echtzeit-Software etc wurde übersprungen.
+
+\section{Entwicklung - Entwicklung kritischer Systeme}
+Bei der Entwicklung kritischer Systeme, gibt es verschiedene (komplementäre) Strategien.
+\begin{itemize}
+\item Fehlervermeidung: zuerst wird überprüft und nicht erst gerechnet, wenn ein Fehler passieren kann
+\item Fehlerentdeckung: ??
+\item Fehlertoleranz: eine Situation, in der z.B. die Berechnung beginnt und während der Berechnung wird eine Fehlersituation erkannt und automatisch behandelt.
+\end{itemize}
+
+Je mehr Fehler behoben werden, umso teurer wird die Software.
+
+Um Fehler zu erkennen, stehen folgende Techniken zur Verfügung:
+\begin{itemize}
+\item verlässliche Softwareprozesse
+\item Qualitätsmanagement
+\item formale Spezifikation
+\item statische Verifikation: mehrere Personen verifizieren
+\item starke Typisierung: Vorteil durch Unterstützung des Compilers
+\item sichere Programmierung: z.B. keine GoTos
+\item Ausnahmebehandlung: nur Sprachen verwenden, die das unterstützen
+\item geschützte Informationen
+\end{itemize}
+
+\subsection{Fehlervermeidung}
+Die Fehlervermeidung beginnt bereits bei den Anforderungen. Diese müssen genau inspiziert werden (sind sie widersprüchlich?). Auch ein Anforderungsmanagement ist notwendig, da sich Anforderungen ändern.
+
+Ebenfalls wichtig ist, dass mindestens ein Vier-Augen-Prinzip beim Code und Entwurf verfolgt wird. 
+
+Als nächsten Schritt gilt es Tests zu planen und zu managen.
+
+Auch welche Konfigurationen erstellt und ausgeliefert werden, muss klar sein.
+
+\subsubsection{Sichere Programmierung}
+Im Rahmen der sicheren Programmierung, sind mögliche Gefahrenquellen Gotos, Rundungsfehler von Gleitkommazahlen, Pointer, dynamische Speicherallokierung, Parallelität, Rekursionen, Interrupts, Vererbung, Aliasing, keine Überprüfung von Arraygrenzen und Konfigurationsdaten. 
+
+\subsubsection{Ausnahmebehandlung}
+Es sollten prinzipiell nur Sprachen verwendet werden, die eine vernünftige Ausnahmebehandlung bieten. Der Code wird dadurch wartbarer und Fehler lassen sich vermeiden.
+
+\subsection{Fehlertoleranz}
+%TODO: Seite 18
+
+
+\subsubsection{Fehlertolerante Architekturen}
+Eine Variante ist die Verwendung von redundanter Hardware. Dabei ist es wichtig, dass auf jeder Hardware Software von unterschiedlichen Entwicklern laufen, um die Ergebnisse vergleichen zu können um so fehlertoleranter zu werden.
+
+Eine andere Variante ist die Verwendung von sogenannten Wiederherstellungsblöcken.
+
+\section{Weiterentwicklung}
+\subsection{Ursachen der Wartung}
+Wartung bedeutet nicht gleich Fehlerbehebung. Sie macht nur 17\% bei der Wartung aus. Circa 65\% machen Erweiterungen aus und weitere 18\% dies Softwareanpassung an z.B. neue Hardware.
+
+\subsection{Wartungsaufwand}
+Oftmals wird in der Praxis das Entwicklerteam nach dem Release auf ein neues Projekt angesetzt und ein anderes Team liest sich in die Software ein und wartet sie dann bzw. die Wartung wird an eine andere Firma übertragen. Das ist unter anderem ein Grund für hohen Wartungsaufwand. Oft spielen auch die Fähigkeiten (z.B. mangelnde Erfahrungen im Anwendungsgebiet, der eingesetzten Technologie) der Entwickler, veraltete/fehlerhafte/nicht vorhandene Dokumentationen oder fehlendes Konfigurationsmanagement eine entscheidende Rolle.
+
+Ebenfalls wichtige Einflussgrößen sind die Anzahl und Komplexität der Schnittstellen, die Anzahl der veränderlichen Anforderungen und die Geschäftsprozesse, in denen das system verwendet wird.
+
+\subsection{Weiterentwicklungsprozesse}
+Seite 35-39  (excl. Reengineering)
