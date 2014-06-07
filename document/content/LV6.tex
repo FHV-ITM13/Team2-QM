@@ -1,66 +1,56 @@
 \chapter{LV 6 am 06.06.2014}
-Ab seite 35
-\subsection{Software-Reengineering}
-Beim Reengineering wird ein altes bzw. bestehendes System "umgewandelt" hinsichtlich der Programmiersprache. Derzeit findet z.B. sehr häufig die Umstellung von COBOL-Programmen statt. Die Vorteile sind das verringerte Risiko und die geringeren Kosten.
+\section{Entwicklung}
+\subsection{Reengineering}
+Beim Reengineering wird ein altes bzw. bestehendes System "umgewandelt" hinsichtlich der Programmiersprache. Derzeit findet z.B. sehr häufig die Umstellung von COBOL-Programmen statt.
 
-Sommerville bietet eine Beurteilung von Systemen, die hilft die Entscheidung, ob ein System reengineered wird, oder nicht. 
-TODO: Grafik einfügen und erklären? Seite 39
+Sommerville bietet eine Beurteilung von Systemen an, die dabei hilft die Entscheidung zu treffen, ob das Reengineering eines Systems sinnvoll ist oder nicht.Dabei sollten nur Systeme herangezogen werden bei denen die Qualität auf einem hohen Niveau ist. Produkte mit geringere Qualität sollten dafür nicht herangezogen werden.
 
 \section{Test}
-Tests gehören auch zur Softwareentwicklung, damit die Qualität sichergestellt werden kann. Tests haben auch immer mit den Requirements zu tun. 
+Tests gehören zur Softwareentwicklung, damit die Qualität sichergestellt werden kann. Tests haben auch immer einen Bezug auf die Anforderungen. 
 \subsection{Motivation}
-Getesetet wird, um 
-
-\begin{itemize}
-\item Probleme zu erkennen und um sie anschließend beheben zu können
-\item Überzeugen der Endanwender
-\item TODO Seite 7 vervollständigen
-\end{itemize}
+Der Hauptgrund für Tests ist das Entdecken von Problemen um diese dadurch beheben zu können. Zudem  können Tests dabei helfen die Endanwender von der korrekten Funktionalität der Software zu überzeugen. Wichtig ist allerdings zu wissen, dass Tests nur die Anwesenheiten von Problemen bestätigen, nicht deren Abwesenheit.
 
 \subsection{Grundlegende Konzepte}
-Es müssen folgende Definitionen unterschieden werden (TODO Seite 8):
-\paragraph{Irrtum:}
-\paragraph{Fehler:}
-\paragraph{Fehlverhalten:}
-\paragraph{Defekt:}
+Es müssen folgende Definitionen unterschieden werden:
+\paragraph{Irrtum: inkorrekte Wahrnehmung oder Aktion eines Menschen}
+\paragraph{Fehler:inkorrektes Codeelement}
+\paragraph{Fehlverhalten: unerwartetes Verhalten eines IT-Artefakts}
+\paragraph{Defekt:Ursache eines Fehlverhaltens}
 
 Ursprünglich verstand man unter Bugs wirklich den Einfluss von Käfern auf die Hardware, wie der erste dokumentierte Bug von Grace Hoppers 1947 zeigt. Hier sorgte eine Motte für das Fehlverhalten einer Schaltung.
 \linebreak
-Um Defekte zu vermeiden, kann man standardisierte Prozesse einführen.
-Um Defekte zu entdecken, kann man Reviews von Spezifikationen und Code bzw. Tests durchführen (Vier-Augen-Prinzip).
-Um Defekte zu beseitigen, kann wieder anhand standardisierter Prozesse, Code-REviews und TEsts erfolgen.
-Um Defekte zu isolieren, kann man mit Redundanzen (NVP) arbeiten. 
+Um Defekte zu vermeiden, kann man standardisierte Prozesse einführe die Fehler erkennen an dadurch die Qualität der Software steigern.
+Um Defekte zu entdecken, kann man Reviews von Spezifikationen und Code sowie Tests durchführen.
+Standardisierter Prozesse sind unter anderem Code-Reviews und Tests. Bei der Defektbehandlung wird im allgemeinen zwischen Defektvermeidung, Defektentdeckung, Defektbeseitigung und Defektisolierung unterschieden.
 \linebreak
 Im Testkontext wird zwischen Blackbox-Tests, Whitebox-Tests und Regressionstests unterschieden. 
 
-\paragraph{Blackbox-Test:} es wird gegen die Spezifikation ohne Kenntnis des Codes getestet
-\paragraph{Whitebox-Test:} es wird unter Kenntnis und Verwendung des Codes getestet
-\paragraph{Regressionstest:} es wird die erwarteten Funktionalität sichergestellt, und dass die Software frei von allen bislang bereits beseitigten Fehlern ist.
+\paragraph{Blackbox-Test:} es wird gegen die Spezifikation ohne Kenntnis des Codes getestet.
+\paragraph{Whitebox-Test:} es wird unter Kenntnis und Verwendung des Codes getestet.
+\paragraph{Regressionstest:} es wird die erwartete Funktionalität sichergestellt und dass die Software frei von allen bislang bereits beseitigten Fehlern ist.
 \linebreak
-\paragraph{abstrakten Testfall:} es werden abstrakte Definitionen eines einzelnen Tests anhand des Testziels, notwendige Vorbereitung, Eingabevariablen und erwartete ERgebnisse und Beobachtungen, abhängign von den Eingabevariablen definiert.
-\paragraph{konkrete Testfall:} ist eine ausführbare Definition eines einzelnen abstrakten Tests. Er besitzt eine Referenz auf den abstrakten Testfall, Werte der Eingabevariablen und detaillierte erwartete Ergebnisse.
+Dabei werden Testfälle und Testssuits erstellt.
+\paragraph{abstrakten Testfall:} es werden abstrakte Definitionen eines einzelnen Tests anhand des Testziels, notwendige Vorbereitung, Eingabevariablen und erwartete Ergebnisse und Beobachtungen, abhängig von den Eingabevariablen definiert.
+\paragraph{konkrete Testfall:} ist eine ausführbare Definition eines einzelnen abstrakten Tests. Er besitzt eine Referenz auf den abstrakten Testfall.
 \paragraph{Testsuite:} ist eine Sammlung von abstrakten und konkreten Testfällen.
 
 \subsection{Testprozess}
 \subsubsection{Generischer Testprozess}
-Es wird festgelegt welche Eingabewerte verwendet werden und welche Testergebnisse erwartet werden. Die Testergebnisse werden in der Analyse herangezogen und mit den erwarteten Ergebnissen verglichen. Gibt es in der Analyse Abweichungen, kann es auf einen Fehler im Code hinweisen, aber auch, dass in der Vorbereitung des Tests etwas geplant wurde, was sich nicht testen lässt. Die Analyseergebnisse ergeben anschließend genauestens ausgewertet, woraus sich ein Feedback und Verbesserungen für die Planung und die Ausführung des Tests ergeben. 
+Es wird festgelegt welche Eingabewerte verwendet werden und welche Testergebnisse erwartet werden. Die Testergebnisse werden in der Analyse herangezogen und mit den erwarteten Ergebnissen verglichen. Erkennt man dabei in der Analyse Abweichungen, kann es auf einen Fehler im Code hinweisen, aber auch, dass in der Vorbereitung des Tests etwas geplant wurde, was sich nicht testen lässt. 
 
 \subsubsection{Testplanung und Testvorbereitung}
-In diesem Schritt müssen die Aktivitäten, sprich Sammluung von Informationen über den Testkandidaten, die defintiion validierbarer TEstziele, Festlegung der Teststrategie, Definition abstrakter Testfälle, Festlegung des anzuwendeen Testverfahren und die Ableitung konrekter Testfälle, geplant werden.
-Daraus lassen sich die erwarteten ERgebnisse, welche in validierbaren Testzielen, dem Test zu Grunde liegenden Modelle, anzuwendenen Testverfahren
-TODO S 2!???
+In diesem Schritt müssen die Aktivitäten, sprich Sammlung von Informationen über den Testkandidaten, die Definition validierbarer Testziele, Festlegung der Teststrategie, Definition abstrakter Testfälle, Festlegung des anzuwenden Testverfahren und die Ableitung konkreter Testfälle, geplant werden.
+Die Ergebnisse daraus sind neben den validierbaren Testzielen und den Testmodellen auch die verschiedenen Testfälle.
 
 \subsubsection{Testdurchführung}
-Bei der Testdurchführung werden alle konkreten Testfälle bzw. Testsuiten gemäß der festgelegten Testverfahren ausgeführt. 
-TODO S 23
+Bei der Testdurchführung werden alle konkreten Testfälle bzw. Testsuiten gemäß der festgelegten Testverfahren ausgeführt. Dabei werden Ergebnisse gesammelt die anschließend ausgewertet werden können.
 
 \subsubsection{Ergebnisanalyse und Verfolgung}
-Bei der Ergebnisanalyse wird ein Soll/Ist-Vergleich der Ergebnisse jedes einzelnen Testfalls und eine Vorklärung der Ursache von Abweichungen durchgeführt. Das Ergebnis sind identifizierbare Abweichungen (daher Defekte) und eine summarische Auswertung aller Testfälle.
-TODO S 25  (notwendige Eingaben, Rückkopplung notwendig?)
+Bei der Ergebnisanalyse wird ein Soll/Ist-Vergleich der Ergebnisse jedes einzelnen Testfalls durchgeführt. Des weiteren finden eine Vorklärung der Ursache von Abweichungen statt. Das Ergebnis sind identifizierbare Abweichungen (daher Defekte) und eine summarische Auswertung aller Testfälle.
+Die dafür benötigten Daten sind neben den Messwerten der Tests auch Beobachtungen der Testausführung.
 
 \subsubsection{Testbewertung}
-Bei der Testbewertung werden die Testziele mit den summarischen Auswertungen der Testfälle verglichen. Es liegt ein Ergebnis vor, wenn das Testende erreicht wird (z.B. Testziel erreicht oder alle Testfälle wurden ausgeführt). 
-TODO S 27 (notwendige Eingaben, Rückkopplung notwendig?)
+Bei der Testbewertung werden die Testziele mit den summarischen Auswertungen der Testfälle verglichen. Es liegt ein Ergebnis vor, wenn das Testende erreicht wird (z.B. Testziel erreicht oder alle Testfälle wurden ausgeführt). Hier ist es wichtig das es sich um validierbare Testfälle handelt. 
 
 \subsection{Teststrategien}
 \subsubsection{Motivation}
@@ -69,54 +59,49 @@ Das planlose "Ausprobieren" ist die häufigste Form des Testens und ist unzureic
 Es muss berücksichtigt werden, dass ein vollständiges Testen aller Möglichkeiten meistens theoretisch gesehen nicht möglich ist und auch auf jeden Fall unwirtschaftlich ist.
 
 \subsubsection{Checklisten und Benutzungsprofile}
-Es können für die verschiedensten Inhalte Checklisten angelegt werden. Beispielsweise Funktions-Checklisten, die eine Liste der wesentlichen Funktionen bzw. anderer Eigenschaften beinhalten (Blackbox), oder Struktur-Checklisten, die eine Liste der Systembestandteile beinhaltet (Whitebox). Hier gibt es viele weitere Checklisten. Es gibt theoretisch keine Grenzen.
+Es können für die verschiedensten Inhalte Checklisten angelegt werden. Beispielsweise Funktions--Checklisten, die eine Liste der wesentlichen Funktionen bzw. anderer Eigenschaften beinhalten (Blackbox), oder Struktur-Checklisten, die eine Liste der Systembestandteile beinhaltet (Whitebox). Hier gibt es viele verschiedene Arten von  Checklisten. Es gibt theoretisch keine Grenzen.
 
-TODO S34 alle auflisten?
-TODO S35 notwendig?
+\begin{itemize}
+\item Funktions-Checklist
+\item Struktur-Checklist
+\item Querschnitts-Checklist
+\end{itemize}
+
+Wichtig bei dem erstellen von Checklisten ist, dass die verwendete Struktur der Checkliste zum Anwendungsfall passt. Denn sichere Aussagen über die Softwarequalität erfordern oft umfangreiche Checklisten.
 
 \subsubsection{Partitionen}
-Es ist meistens theoretisch unmöglich alle Möglichkeiten zu Testen. Paritionen können helfen, Probleme von Checklisten zu lösen  bzw. zu lindern.
+Es ist meistens theoretisch unmöglich alle Möglichkeiten zu Testen. Partitionen können helfen, Probleme von Checklisten zu lösen  bzw. zu lindern.
 \linebreak
-Grundannahme ist, dass alle Elemente einer Äquivalenzklasse gleich behandelt werden. Es reicht daher, ein beliebiges Element aus einer Äquivalenzklasse zu testen
+Grundannahme ist, dass alle Elemente einer Äquivalenzklasse gleich behandelt werden. Es reicht daher, ein beliebiges Element aus einer Äquivalenzklasse zu testen.
 \linebreak
 Die Anwendung von Partitionen auf Checklisten erhöht den Überdeckungsgrad und verbessert damit die Qualität und reduziert den Gesamtaufwand. 
 \linebreak
-Die Verwendung mehrerer einfacher, von einander unahängiger und in sich konsistenter Partitionen ist möglich und daher auch sinnvoll.
+Die Verwendung mehrerer einfacher, von einander unabhängiger und in sich konsistenter Partitionen ist möglich und daher auch sinnvoll.
 Nachteil ist, dass eine gleiche Gewichtung aller Äquivalenzklassen zu unwirtschaftlichen Verteilung des Testaufwand führt.
 
 \subsubsection{Benutzungsprofile}
 Ein Benutzungsprofil ist eine quantitative Definition der unterschiedlichen Aufrufhäufigkeiten. Beispiele hierfür sind Funktionen für Endbenutzer oder für Administratoren. Damit wird sichergestellt, dass die am häufigsten verwendeten Funktionen auch am intensivsten und regelmäßig getestet werden. 
 \linebreak
-Um Benutzungsprofile definieren zu können, muss zwischen existierenden PRodukten, neuen Produkten und neuartigen PRodukten unterschieden werden. Bei existiertenden PRodukten wird die Messung in unterschiedlichen Anwendernumgebungen des aktuellen Produktes und der Vorgängerversion durchgeführt. Bei neuen Produkten kann ein Konkurenzprodukt herangezogen werden und dort die Benutz
+Um Benutzungsprofile definieren zu können, muss zwischen existierenden Produkten, neuen Produkten und neuartigen Produkten unterschieden werden. Bei existierenden Produkten wird die Messung in unterschiedlichen Anwenderumgebungen des aktuellen Produktes und der Vorgängerversion durchgeführt. Bei neuen Produkten kann ein Konkurrenzprodukt herangezogen werden um die Messung durchzuführen.
+Zudem sollte bei neuartigen Produkten immer eine Einbindung von Marketingstrategen, Softwarearchitekten und Systemarchitekten erfolgen. 
 
-WAS???
-TODO S 42
-
-Für die Konstruktion kann die Top-Down-Methode verwendet werden. Hierbei werden Kundenkategorien mit einer Gewichtung nach relativem Benutzungsgrad definiert. Zusätzlich werden die Anwendertypen mit einer Gewichtung der Anwendungshäufigkeit pro Kundenkategorie definiert.
-
-TODO Überschriften??? Überdeckung ist ein Unterkapitel von Teststrategien
+Für die Konstruktion von Benutzerprofilen kann die Top-Down-Methode verwendet werden. Hierbei werden Kundenkategorien mit einer Gewichtung nach relativem Benutzungsgrad definiert. Zusätzlich werden die Anwendertypen mit einer Gewichtung der Anwendungshäufigkeit pro Kundenkategorie definiert.
 
 \subsubsection{Überdeckungen}
-\paragraph{Grundlegende Konzepte} 
-TODO S 48-49
-Wichtig ist, dass die Partitionierung vollständig und überlappungsfrei ist. Die Grenzen bilden die Teile des Eingaberaums, an dem Unterdomänen zusammensoßen - im einfachsten Fall ist diese Grenze linear.  Ein Grenzpunkt liegt genau auf einer Grenze und ein Knotenpunkt liegt auf mindestens zwei Grenzen).
+Das Grundlegenden Konzepte hinter der Teststrategie Überdeckung ist unter anderem die Partitionierung der Eingaben. Wichtig ist, dass die Partitionierung vollständig und überlappungsfrei ist. Die Grenzen bilden die Teile des Eingaberaums, an dem Unterdomänen zusammenstoßen. Im einfachsten Fall ist diese Grenze linear.  Ein Grenzpunkt liegt genau auf einer Grenze und ein Knotenpunkt liegt auf mindestens zwei Grenzen. Es wird dabei angenommen das die Ergebnisse auf Korrektheit überprüft werden können.
 
-\paragraph{Überdeckungsbasiertes Testen}
-Um Überdeckungsabsiertes Testen zu ermöglichen, muss eine Identifikation des  Eingaberaums (Eingabevariablen mit ihren Beschränkungen) durchgeführt werden. 
-TODO S52
-
-\paragraph{Probleme}
+Im bereich der Teststrategie Überdeckung spielt das überdeckungsbasierte Testen eine große Rolle.Um überdeckungsbasiertes Testen zu ermöglichen, muss eine Identifikation des  Eingaberaums (Eingabevariablen mit ihren Beschränkungen) durchgeführt werden. Dieser Eingaberaum muss in Unterdomänen (Äquivalenzklassen) eingeteilt werden. Des Weiteren müssen diese Unterdomänen analysiert werden in Bezug auf ihre Grenzen. Anschließen müssen die Testpunkte pro Domain evaluiert werden.
+Der letzte Schritt ist behandelt dann die Ausführung des Tests mit jedem ausgewählten Testpunkt. Dabei können allerdings eine Vielzahl von Problemen auftreten.
 \begin{itemize}
 \item Testpunkte können vom Testkandidaten nicht bearbeitet werden (Ursache hierfür sind unvollständige Spezifikationen oder Implementierungen oder Spezifikationen auf Basis von Unterdomänen)
 \item Testpunkte haben mehrere widersprüchliche Verarbeitungsregeln (Ursache hierfür sind überlappende Unterdomänen)
 \item Probleme mit der Grenzdefinition (Ursachen hierfür sind Abschlussprobleme, Grenzverschiebungen mit minimalen Abweichungen (Rundungsfehlern), fehlende Grenzen durch fehlerhafte Partitionierung und überflüssige Grenzen durch übertriebene Partitionierung)
 \end{itemize}
 
-\paragraph{Überdeckungsbasierte Teststrategien}
-Bei der EPC (Extreme Point Combination) Strategie, wird für jede Unterdomäne für jede Dimensionen i des Eingaberaums ein Minimum und Maximum definiert und als Testpunkte dienen alle 4^n möglichen Kombinationen der underi, mini, maxi und overi. 
-Mit dieser Strategie is tman im Eindimensionalen auf der sicheren Seite, da Abschlussprobleme, Grenzverschiebungen (nicht alle), fehlende Grenzen und überflüssige Grenzen (abhängig von der Lage des inneren Testpunkts) erkannt werden. Im Mehrdimensionalen allerdings ist diese Strategie nicht zu empfehlen, da unter Umständen erhebliche Probleme abhängig von der Art und Lage der Grenzen entstehen können.
-TODO underi, mini etc - i untergestellt
+Um überdeckungsbasiertes Testen zu ermöglichen gibt es eine Vielzahl von verschiedenen Ansätzen.
+Eine Ansatz ist der EPC. Bei der EPC (Extreme Point Combination) Strategie, wird für jede Unterdomäne für jede Dimensionen i des Eingaberaums ein Minimum und Maximum definiert und als Testpunkte dienen alle $4^n$ möglichen Kombinationen. 
+Mit dieser Strategie ist man im Eindimensionalen auf der sicheren Seite, da Abschlussprobleme, Grenzverschiebungen (nicht alle), fehlende Grenzen und überflüssige Grenzen (abhängig von der Lage des inneren Testpunkts) erkannt werden. Im Mehrdimensionalen allerdings ist diese Strategie nicht zu empfehlen, da unter Umständen erhebliche Probleme abhängig von der Art und Lage der Grenzen entstehen können.
 \linebreak
-Mit der Schwachen Nx1-Strategie (sehr wichtig) können Grenzverschiebungen erkannt werden. Es werden für jede Unterdomäne und für jede Grenze n linear unabhängige Testpunkte auf der Grenze, ein Testpunkt nicht auf der Grenze, ein Testpunkt außerhalb der Unterdomäne, falls die Grenze abgeschlossen ist, ein Testpunkt innerhalb der Unterdomäne, falls die Grenzen offen sind definiert. Zusätzlich wird ein Testpunkt im Inneren der Unterdomäne definiert. Insgesat hat man dann (n+1)*b+1 Testpunkte pro Unterdomäne mit b Grenzen. Der Aufwand dieser Strategie ist sehr groß, doch sie erkennt dafür Abschlussprobleme, Grenzverschiebungen, fehlende Grenzen und die meisten überflüssigen Grenzen (allerdings nicht alle).
+Ein anderer Ansatz ist die Sachwache $Nx1$ Strategie. Mit der Schwachen $Nx1$-Strategie können Grenzverschiebungen erkannt werden. Es werden für jede Unterdomäne und für jede Grenze $n$ linear unabhängige Testpunkte auf der Grenze, ein Testpunkt nicht auf der Grenze, ein Testpunkt außerhalb der Unterdomäne, falls die Grenze abgeschlossen ist, ein Testpunkt innerhalb der Unterdomäne, falls die Grenzen offen sind definiert. Zusätzlich wird ein Testpunkt im Inneren der Unterdomäne definiert. Insgesamt hat man dann $(n+1)*b+1$ Testpunkte pro Unterdomäne mit $b$ Grenzen. Der Aufwand dieser Strategie ist sehr groß, doch sie erkennt dafür Abschlussprobleme, Grenzverschiebungen, fehlende Grenzen und die meisten überflüssigen Grenzen (allerdings nicht alle).
 
 Bis Seite 62
