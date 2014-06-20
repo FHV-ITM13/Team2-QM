@@ -1,0 +1,74 @@
+\chapter{LV 7 am 20.06.2014}
+\section{Teststrategien}
+\paragraph{Beispiel:}
+
+<Stm> := <Assign> | <Loop> | <Case>
+x12 = (-b +- sqrt(b^2 - 4ac))/2a
+
+TODO MATHE FORMEL
+TODO HAUSAUFGABE: Überlegen, was man beim obigen Beispiel alles testen müsste...
+
+
+\subsection{Überdeckungen}
+Ein anderer Ansatz ist die schwache $Nx1$ Strategie. Mit der schwache $Nx1$-Strategie können Grenzverschiebungen erkannt werden. Es werden für jede Unterdomäne und für jede Grenze $n$ linear unabhängige Testpunkte auf der Grenze, ein Testpunkt nicht auf der Grenze, ein Testpunkt außerhalb der Unterdomäne, falls die Grenze abgeschlossen ist, ein Testpunkt innerhalb der Unterdomäne, falls die Grenzen offen sind definiert. Zusätzlich wird ein Testpunkt im Inneren der Unterdomäne definiert. Insgesamt hat man dann $(n+1)*b+1$ Testpunkte pro Unterdomäne mit $b$ Grenzen. Der Aufwand dieser Strategie ist sehr groß, doch sie erkennt dafür Abschlussprobleme, Grenzverschiebungen, fehlende Grenzen und die meisten überflüssigen Grenzen (allerdings nicht alle). Sie bietet einen guten wirtschaftlichen Kompromiss. 
+
+\subsection{Endliche Automaten und Markov-Modelle}
+Die meisten Anwendungsprogramme lassen sich als endliche Automaten mit Ausgabe darstellen. Man versucht auf eine beherrschbare Anzahl an Zustände und Übergänge zu erreichen. Für die Vereinfachung ist es notwendig, die Anzahl der Zustände deutlich kleiner als 100 zu halten. Viele sagen, dass 7 Zustände schon zu viel sei. Für Webapplikationen bietet sich diese Methode zum Testen sehr gut an, da jede Seite als eigener Zustand definiert werden kann. Man kann eine Beschränkung für nur relevante Seiten definieren, wodurch sich die Anzahl der Zustände verringert. 
+
+Man muss die Zustände, Übergänge und die I/O-Beziehungen definieren um das Model zu validieren. Für die Testziele ist es relevant zu bewerten, ob alle Zustände erreichbar, vollständig und notwendig sind. Bei den Übergängen ist die Durchführbarkeit  ein wichtiger Punkt. Hier sollte darauf geachtet werden, dass keine Wiederholung der Prüfung der Zustandserreichbarkeit der bereits ausgeführter Übergänge stattfindet. 
+
+Bei dem Markov-Modell (auch Markov-Kette) kann getestet werden. Es wird ein endlicher Automat mit Wahrscheinlichkeiten an jedem Zustandsübergang erstellt. Bei einem unvollständigen Modell ist die Summe der Wahrscheinlichkeiten aller ausgehenden Übergänge < 1. Dann handelt es sich dabei um ein unvollständiges Modell.
+
+Die Wahrscheinlichkeit eines konkreten Übergangs ist das Produkt aller Wahrscheinlichkeiten auf dem Pfad vom Start bis zum Ausgangszustand, multipliziert mit der Wahrscheinlichkeit dieses konkreten Übergangs. Bei Schleifen kann dies unangenehm werden.
+
+DAs Unified Markov Model (UMM) ist ein kohärenter Satz von hierarchisch geschachtelten Markov-Modellen und ist deutlich besser in der Praxis einsetzbar als das Markov-Modell. Es eignet sich vorallem für alle Arten von statistischen Aussagen (z.B. Zuverlässigkeit, Verfügbarkeit, ...).
+
+\subsection{Kontrollfluss}
+Beim Kontrollfluss ist das Testziel die Ausführung aller Pfade im Programm. Der Control Flow Graph (CFG) besteht aus Knoten, welche ausführbare Anweisungen sind (Unterscheidung zwischen Startknoten und Endknoten), und Kanten, welche mögliche Verarbeitungssequenzen darstellen. 
+
+Prinzipiell wird versucht alle Pfade auszuführen. Lediglich Schleifen sind davon ausgenommen, da sie ein Problem darstellen. Es musst bei Schleifen getestet werden:
+\begin{itemize}
+\item komm ich überhaupt in die Schleife rein
+\item funktioniert sie mit einer, zwei, drei,... Durchläufen
+\item erreiche ich die Grenzfälle
+\end{itemize}
+
+Die Empfehlung hier ist es, den Pfad von hinten aufzubauen, da so die Identifikation von unbenötigtem Code unterstützt wird.
+
+\subsection{Datenfluss}
+Beim Data Dependency Graph (DDG) stellen Knoten Zustände von Variablen dar und die Kanten stehen für die Operationen des Programms. 
+
+TODO GRAFIK + BEISPIEL VON SEITE 75?
+
+Beim DDG wird die Art des Zugriffs auf einen Zustand unterschieden. Es gibt einen lesenden und einen schreibenden Zugriff. Somit ist es möglich Zugriffsfolgen zu definieren, die Probleme darstellen könnten. Zum Beispiel geht von einem Schreib-Lese-Zugriff (S-L) oder einem Lese-Lese-Zugriff keine potentielle Gefahr aus. Ein Schreib-Schreib-Zugriff deutet allerdings auf mögliche Fehler und Ineffizienz hin. 
+
+\section{Testverfahren}
+Bei den Unit Tests wird ein White Box Test durch den Entwickler realisiert. Es handelt sich dabei um informelles Testen um Fehler zu lokalisieren. 
+
+Bei einem Komponentntest wird entweder ein White Box Test oder Black Box Test durch den Entwickler realisiert. White Box Tests werden hier eher für prozedurale Sprache verwendet und Black Box Tests vor allem in OO-Sprachen.
+
+Bei einem Integrationstest wird ein Black Box Test in Bezug auf die zu integrierenden Komponenten und ein White Box Test in Bezug auf die Integrationsschicht (durch Entwickler) durchgeführt. 
+
+Bei einem Systemtest werden Black Box Tests durch professionelle Tester durchgeführt.
+
+Desweiteren gibt es noch Regressionstests, Abnahmetests und Betatests. 
+
+Dort wo Black Box Tests durchgeführt werden, spielen Checklisten, Benutzungsprofile, Endliche Automaten eine wichtige Rolle. Bei den White Box Tests ist überdeckungsbasiertes Testen und Kontrollfluss wichtig. 
+
+\section{Testwerkzeuge}
+\subsection{Debugger}
+Debuggen bedeutet nicht Testen! Debuggen kann allerdings zum Testen verwendet werden um beispielsweise den für einen Test benötigten Status herzustellen. Ein großer Vorteil ist, dass wir uns so nicht zum planlosen Probieren verführen lassen.
+
+\subsection{Ausführbare Tests}
+Dabei handelt es sich um automatisierte Tests. Um das zu realisieren gibt es zum Beispiel JUnit (Java, C), NUnit (C#), CPPUnit (C++), JSUnit (JavaScript), PHPUnit (PHP) etc.
+ 
+\subsection{Testrahmen}
+TODO WHOOT?
+
+\subsection{Emulatoren/Simulatoren}
+
+\subsection{Überdeckungsanalyse}
+
+\subsection{GUI Capture/Replay}
+
+TODO bis Seite 105 DANKE THOMAS
