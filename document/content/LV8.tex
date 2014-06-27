@@ -88,5 +88,15 @@ TODO Thomas Grafik S 36
 Die Probleme bei der statistischen Zuverlässigkeitsmessung sind unter anderem die Unsicherheit über das Betriebsprofil, die Kosten der Testdatenerstellung (eine automatische Generiung ist nicht immer ausreichend) und die statistischen Unsicherheiten (=je weniger Fehler im System und je höher die Anforderungen an die Zuverlässigkeit, umso aufwändiger und schwieriger ist es, eine statistisch relevante Anzahl an Systemausfällen herbei zu führen).
 
 \section{Validierung der Betriebssicherheit}
+\paragraph{Beobachtung:} die Zuverlässigkeit von ROCOF messbar ist, jedoch die Betriebssicherheit nicht. 
+
+\paragraph{Empfehlung von Reviews:} dadurch wird unter anderem gewährleistet, dass es eine wartungsfreundliche und verständliche Struktur existiert und die Entwürfe von Algorithmen und Datenstrukturen mit dem spezifizierten Verhalten übereinstimmen.  
+
+\paragraph{Argumentation für Betriebssicherheit: } hier kann beobachtet werden, dass die formale Verifikation des gesamten Systems eine vollständige Liste aller (auch der externen) Fehler (=unmöglich) erfordert. Außerdem ist die Verifikation des gesamten Systems ist darüber hinaus kompliziert, teuer und fehleranfällig. Die Vorgehensweise wäre die formale Definition einer Reihe von Bedrohungen (unsicherer Zustände) in Form von Prädikaten und der Nachweis, dass alle Pfade, die zu einem solchen unsicheren Zustand führen, dem entsprechenden Prädikat widersprechen. 
+
+\paragraph{Bedeutung des Prozesses: } 
+TODO S 46
 
 \section{Validierung der Systemsicherheit}
+
+TODO bis S 54

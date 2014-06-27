@@ -3,7 +3,7 @@
 TSWLatexianTemp_*.tex
 TSWLatexianTemp_*.pdf
 /.texpadtmp/
-
+*.pdf
 *.acn
 *.acr
 *.alg
