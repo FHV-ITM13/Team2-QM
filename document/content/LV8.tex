@@ -20,37 +20,45 @@ Die Verifikation trägt zur Validierung bei, es sind jedoch zusätzliche Maßnah
 Mögliche Fehlerquellen treten auf, wenn der Anwender ein vermeintliches Fehlverhalten beobachten kann. Es kann sich dabei um ein Missverständnis ("It's not a bug, it's a feature!") oder um ein tatsächliches Fehlverhalten handeln (z.B. Programmierfehler, Fehler in der Spezifikation, unerwartete Umgebungseinflüsse,...).
 
 \chapter{Planung der Qualitätsüberprüfung}
-Prüfverfahren können entweder statisch oder dynamisch sein. Die Ziele dabei sind es Fehler zu Entdecken (=Verifikation) und das Aufbauen von Vertrauen bzgl. der Anwendbarkeit der Software (=Validierung).
-Sommerville gibt hier einen Prozess für die Fehlerbehandlung vor.
-
-TODO Thomas Grafik S 10?
+Prüfverfahren können entweder statisch oder dynamisch sein. Die Ziele dabei sind es Fehler zu Entdecken (=Verifikation) und den Aufbau von Vertrauen bezüglich der Anwendbarkeit der Software. Dies ist Validierung bekannt. 
 
 \chapter{Verifikationstechniken}
 \section{Softwareinspektion}
-Die Motivation bei der Softwareinspektion ist unter anderem die Fehlerlokalisierung auf der Basis von Tests oder auch das gleichzeitig verfolgen weiterer Prüfziele wie beispielsweise die Portierbarkeit, Wartbarkeit oder Eignung von Algorithmen zu inspizieren. 
+Die Motivation bei der Softwareinspektion ist unter anderem die Fehlerlokalisierung auf der Basis von Tests oder auch das gleichzeitige verfolgen weiterer Prüfziele wie beispielsweise die Portierbarkeit oder Wartbarkeit. 
 
 Die Voraussetzungen für die Softwareinspektion ist, dass die genauen Spezifikationen verfügbar sind, die Teammitglieder mit den einzuhaltenden Standards und Normen vertraut sind und mindestens eine kompilierbare Codeversion verfügbar ist. 
 
-Sommerville definiert einen Standardablauf für Softwareinspektionen. Der Zeitbedarf für den Überblick beträgt ca. 500 Anweisungen/Stunden und einer Gesamtdauer von maximal 2 Stunden. Für die individuelle Vorbereitung werden noch circa 125 Anweisungen/Stunde benötigt und für die Inspektionssitzung nochmals circa 100 Anweisungen/Stunde, maximal aber 2 Stunden.
+Sommerville definiert einen Standardablauf für Softwareinspektionen. Der Zeitbedarf für den Überblick beträgt zirka 500 Anweisungen/Stunden und einer Gesamtdauer von maximal 2 Stunden. Für die individuelle Vorbereitung werden noch circa 125 Anweisungen/Stunde benötigt und für die Inspektionssitzung nochmals circa 100 Anweisungen/Stunde, maximal aber 2 Stunden.
 
-TODO THomas Grafik S 15?
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.8]{document/graphics/SwInspektion} 
+\caption{Sommerville Softwareinspektion}
+\end{figure}
 
 
 \section{Automatisierte statische Analyse}
 Bei der Softwareinspektion handelt es sich um eine Form der statistische Analyse. Man verwendet für die Umsetzung oft die Hilfsmittel der Softwareinspektion wie Checklisten und Heuristiken. Hier gibt es ein sehr hohen Automatisierungspotential. 
 
-Werkzeuge für die statische Analyse sind die Erkennung Anomalien im Code, wobei nicht jede Anomalie ein Fehler ist. Sie sollten aber alle in einem Review besprochen werden.
+Werkzeuge der statische Analyse helfen bei der Erkennung von Anomalien im Code, wobei nicht jede Anomalie ein Fehler ist. Sie sollten aber alle in einem Review besprochen werden.
 
 Es werden Fehlerklassen wie Datenfehler (z.B. uninitialisierte Variablen verwenden,...) Steuerungsfehler (z.B. unerreichbarer Code,..), Ein-Ausgabefehler (z.B. zweimal ausgegebene Variable ohne zwischenzeitliche Zuweisung,..), Schnittstellenfehler (z.B. falsch zugeordnete Parametertypen,..) und Speicherverwaltungsfehler (z.B. nicht zugewiesene Zeiger,..) eingeführt.
 
 Bei der statischen Analyse werden verschiedene Phasen abgearbeitet. 
-\paragraph{Analyse der Steuerung:} dies beinhaltet das Erkennen von Schleifen (nicht-explizite Schleifen, mehrere Eintrittspunkte/Austrittspunkte), von unerreichbarem Code (nach unbedingtem GOTO, nicht erfüllbare Bedingungen) und eine Pfadanalyse für Überdeckungstests.
+\begin{itemize}
+\item Analyse der Steuerung
+\item Analyse der Datenverwendung
+\item Analyse der Schnittstellen
+\item Analyse des Informationsflusses
+\end{itemize}
+
+\paragraph{Analyse der Steuerung:} dies beinhaltet das Erkennen von Schleifen, von unerreichbarem Code  und eine Pfadanalyse für Überdeckungstests.
 
 \paragraph{Analyse der Datenverwendung:} hier wird überprüft ob nicht initialisierte Variablen gelesen werden, ob nicht gelesene Variablen überschrieben werden, ob Variablen unbenutzt sind oder ob redundante Tests ausgeführt werden.
 
-\paragraph{Analyse der Schnittstellen:} hier werden die die Anzahl und die Typen der Parameter in Deklarationen und Aufrufen, deklarierte aber nicht aufgerufene Prozeduren und Funktionen sowie nicht verwendete Funktionsergebnisse ermittelt/überprüft.
+\paragraph{Analyse der Schnittstellen:} hier werden die die Anzahl und die Typen der Parameter in Deklarationen und Aufrufen, deklarierte aber nicht aufgerufene Prozeduren und Funktionen sowie nicht verwendete Funktionsergebnisse ermittelt und überprüft.
 
-\paragraph{Analyse des Informationsflusses:} hier geht es primär um die Erkennung der Abhängigkeiten zwischen Eingabevariablen und Ausgabevariablen (z.B. unbenutzte Eingaben).
+\paragraph{Analyse des Informationsflusses:} hier geht es primär um die Erkennung der Abhängigkeiten zwischen Eingabevariablen und Ausgabevariablen.
 
 \section{Formale Methoden}
 Die Vision ist es formale Methoden als die ultimative statische Verifikationsmethode zu verwenden.
@@ -58,45 +66,65 @@ Die Voraussetzung hierfür ist die formale Spezifikation. Der Aufwand hierfür i
 
 Es stehen inzwischen automatische Überprüfungen der Spezifikationen auf Inkonsistenzen und die automatische Generierung von Code aus den Spezifikationen zur Verfügung. 
 
-Es gibt allerdings noch einige Probleme. Die Spezifikationen entsprechen meistens nicht den Benutzeranforderungen (Fehler, Lücken,...), da die formalen Spezifikationen oft unverständlich für die Mehrheit der Anwender ist. Die Komplexität und der Umfang der Beweise stellt ein weiteres Problem dar und ein unzutreffendes Nutzungsmuster macht Beweise ungültig.
+Es gibt allerdings noch einige Probleme. Die Spezifikationen entsprechen meistens nicht den Benutzeranforderungen (Fehler, Lücken,...), da die formalen Spezifikationen oft unverständlich für die Mehrheit der Anwender ist. Die Komplexität sowie der Umfang der Beweise stellt ein weiteres Problem dar. Zudem macht ein oft unzutreffendes Nutzungsmuster die Beweise ungültig.
 
 \section{Softwaretest}
-Das Ziel ist es Fehler zu erkennen beispielsweise via Whitebox-Tests. Wurde bereits behandelt.
-
-TODO Thomas vll link zur LV?
+Die Softwaretest als Verifikationstechnik ist ein anderes Verfahren zum testen gegen die Spezifikation. Das Ziel ist es Fehler zu erkennen beispielsweise via Whitebox-Tests. Genaueres dazu siehe im Kapitel LV6.
 
 \chapter{Validierungstechniken}
 \section{Allgemeine Validierungsmaßnahmen}
-\paragraph{Analysephase:} die Qualität der Anforderungen werden sichergestellt. Dabei werden Anforderungs-Interviews mit einer Vielzahl unterschiedlicher Beteiligt bzw. Betroffener durchgeführt und Reviews der Anforderungen (durch Beteiligte/Betroffene, Experten des Anwendungsgebiets und Experten für Systemeigenschaften wie Zuverlässigkeit,..)
+Die Allgemeine Validierungsmaßnahmen werden in folgende Phasen unterteilt.
+\begin{itemize}
+\item Analysephase
+\item Entwicklungsphase
+\item Validierungsphase
+\item Einsatzphase
+\end{itemize}
 
-\paragraph{Entwicklungsphase: } es werden Design-Reviews mit Beteiligten/Betroffenen durchgeführt. Dabei werden ein GUI-Prototyp und Interaktionsszenarios vorgestellt.
+\paragraph{Analysephase:} die Qualität der Anforderungen werden sichergestellt. Dabei werden Anforderung--Interviews mit einer Vielzahl unterschiedlicher Beteiligter bzw. Betroffener durchgeführt. Anschließend werden Reviews der Anforderungen durch Beteiligte/Betroffene, Experten des Anwendungsgebiets und Experten für Systemeigenschaften durchgeführt.
 
-\paragraph{Validierungsphase: } es werden Tests durch echte Anwender möglichst aller Kategorien durchgeführt. Dabei wird das Feedback z.B. über ein Wiki gesammelt. 
+\paragraph{Entwicklungsphase: } es werden Design-Reviews mit Beteiligten/Betroffenen durchgeführt. Dabei werden GUI-Prototypen und Interaktionsszenarios vorgestellt.
+
+\paragraph{Validierungsphase: } es werden Tests mit echte Anwender durch möglichst aller Kategorien durchgeführt. Dabei wird das Feedback z.B. über ein Wiki gesammelt. 
 
 \paragraph{Einsatzphase: } hier werden Marktbeobachten durchgeführt, Benutzergruppen analysiert und ein Produktwiki gepflegt.
 
 \section{Softwaretest}
-Auch hier ist es das Ziel die Anwendbarkeit der Software zu überprüfen und vertrauen in die Software zu entwickeln. 
-
-TODO Thomas vll link zur LV? identisch mit Zeile 66.
+Auch hier ist es das Ziel die Anwendbarkeit der Software zu überprüfen und das Vertrauen in die Software zu stärken. Genaueres dazu siehe Kapitel LV6.
 
 \section{Validierung der Zuverlässigkeit}
-Sommeville stellt für den Prozess der statistischen Zuverlässigkeitsmessung ein Schema zur Verfügung:
-
-TODO Thomas Grafik S 36
-
-Die Probleme bei der statistischen Zuverlässigkeitsmessung sind unter anderem die Unsicherheit über das Betriebsprofil, die Kosten der Testdatenerstellung (eine automatische Generiung ist nicht immer ausreichend) und die statistischen Unsicherheiten (=je weniger Fehler im System und je höher die Anforderungen an die Zuverlässigkeit, umso aufwändiger und schwieriger ist es, eine statistisch relevante Anzahl an Systemausfällen herbei zu führen).
+Eine weitere Art der Validierung kann über die statische Zuverlässigkeitsmessung erfolgen. 
+Die Probleme bei der statistischen Zuverlässigkeitsmessung sind unter anderem die Unsicherheit über das Betriebsprofil, die Kosten der Testdatenerstellung (eine automatische Generierung ist nicht immer ausreichend) und die statistischen Unsicherheiten.
 
 \section{Validierung der Betriebssicherheit}
-\paragraph{Beobachtung:} die Zuverlässigkeit von ROCOF messbar ist, jedoch die Betriebssicherheit nicht. 
+Bei der Validierung der Betriebssicherheit kann in folgende Punkte unterteilt werden:
+\begin{itemize}
+\item Beobachtung
+\item Reviews
+\item Argumentation der Betriebssicherheit
+\item Bedeutung der Prozesse
+\end{itemize}
+
+
+\paragraph{Beobachtung:} die Zuverlässigkeit lässt sich mittels ROCOF messen. Die Betriebssicherheit jedoch nicht. 
 
 \paragraph{Empfehlung von Reviews:} dadurch wird unter anderem gewährleistet, dass es eine wartungsfreundliche und verständliche Struktur existiert und die Entwürfe von Algorithmen und Datenstrukturen mit dem spezifizierten Verhalten übereinstimmen.  
 
-\paragraph{Argumentation für Betriebssicherheit: } hier kann beobachtet werden, dass die formale Verifikation des gesamten Systems eine vollständige Liste aller (auch der externen) Fehler (=unmöglich) erfordert. Außerdem ist die Verifikation des gesamten Systems ist darüber hinaus kompliziert, teuer und fehleranfällig. Die Vorgehensweise wäre die formale Definition einer Reihe von Bedrohungen (unsicherer Zustände) in Form von Prädikaten und der Nachweis, dass alle Pfade, die zu einem solchen unsicheren Zustand führen, dem entsprechenden Prädikat widersprechen. 
+\paragraph{Argumentation für Betriebssicherheit: } hier kann beobachtet werden, dass die formale Verifikation des gesamten Systems eine vollständige Liste aller (auch der externen) Fehler benötigt. Dies ist allerdings unmöglich.  Außerdem ist die Verifikation des gesamten Systems sehr kompliziert, teuer und fehleranfällig. Die Vorgehensweise wäre die formale Definition einer Reihe von Bedrohungen (unsicherer Zustände) in Form von Prädikaten und der Nachweis, dass alle Pfade, die zu einem solchen unsicheren Zustand führen, dem entsprechenden Prädikat widersprechen. 
 
 \paragraph{Bedeutung des Prozesses: } 
-TODO S 46
+Die Motivation dahinter ist, dass Unfälle zu selten sind um sie mittels statistischen Verfahren unter Kontrolle zu bekommen. Unfälle sind oft nur Verletzungen von "darf nicht"-Anforderungen. Die wichtigsten Aktivitäten in diesem Verfahren sind das Einrichten eines Überwachungssystems, die Zuweisung der Verantwortung an geeignete Personen, die Reviews während des gesamten Prozesses und die Formale Zertifizierung kritischer Komponenten.
+
 
 \section{Validierung der Systemsicherheit}
+Motivation für die Validierung der Systemsicherheit  ist das erhalten einer guten Infrastruktur um zu verhindern das von einem beliebigen Rechner auf ein System von uns zugegriffen werden kann. Das Problem dabei ist aber, dass es schwer  Nachzuweisen ist ob ein System keine Fehlfunktionen im Bereich der Sicherheit hat. Um ein gewisses Maß der Sicherheit gewährleisten zu können, gibt es folgende sich ergänzende Überprüfungsansätze
+\begin{itemize}
+\item Erfahrungsbasierte Validierung
+\item Werkzeugbasierte Validierung
+\item Angreiferteams
+\item Formale Verifikation
+\end{itemize}
 
-TODO bis S 54
+Wichtig dabei ist es allerdings zu berücksichtigen, dass keine Kette stärker ist als sein schwächstes Glied.
+
+S 54
