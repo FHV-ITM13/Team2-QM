@@ -2,20 +2,19 @@
 \section{Besprechung Hausaufgabe - Anforderungen}
 \subsection{Funktionale Anforderungen}
 \begin{itemize}
-\item Ergebnis x element R : $ax^2 + bx + c = 0$
+\item Ergebnis $x \in R$ : $ax^2 + bx + c = 0$
 \item kein Absturz bei komplexer Lösung
 \item vernünftige Reaktion auf Eingabefehler
 	\begin{itemize}
-		\item a = 0
+		\item $a = 0$
 		\item unvollständige Eingaben
 		\item $4ac > b^2$
 	\end{itemize}
-\item relativer max. Rundungsfehler von 0,1\% mit Beweis (für die wirkliche Realisierung darf die Formel nicht 1 zu 1 programmiert werden. In der Realität wird eher eine Newton-Annäherung implementiert).
+\item relativer max. Rundungsfehler von 0,1\% mit Beweis (für die wirkliche  Realisierung darf die Formel nicht 1 zu 1 programmiert werden; in der Realität wird eher eine Newton-Annäherung implementiert).
 \item es gibt immer ein definiertes Ergebnis (Ausnahmebehandlungen)
 \item keine Endlosschleife (wenn Newton angewendet wird, dann braucht es eine vernünftige Abbruchbedingung)
-\item Zeitbedarf max 1 msec
+\item Zeitbedarf max. 1 msec
 	\begin{itemize}
-		\item CPU der Ver
 		\item Rechner/Prozessor
 		\item max. 2x SQRT der Standardimplementierung
 	\end{itemize}
@@ -34,7 +33,7 @@ Refernez-Architekturen beschreiben eine Definition typischer Strukturen. Diese s
 \end{itemize}
 
 \section{Verteilte Systeme}
-Die Motivation hinter Verteilten Systemen ist vor allem eine bessere Ressourcenteilung. Hier sind Faktoren wie Offenheit, Nebenläufigkeit sowie Skalierbarkeit von enormer Bedeutung. Der Nachteil an solchen Systemen ist deren Komplexität.
+Die Motivation hinter verteilten Systemen ist vor allem eine bessere Ressourcenteilung. Hier sind Faktoren wie Offenheit, Nebenläufigkeit sowie Skalierbarkeit von enormer Bedeutung. Der Nachteil an solchen Systemen ist deren Komplexität.
 
 Wir haben folgende Varianten für verteilte Systeme kennengelernt
 \begin{itemize}
@@ -46,10 +45,10 @@ Wir haben folgende Varianten für verteilte Systeme kennengelernt
 \end{itemize}
 
 \section{Echtzeit-Software}
-Echtzeitsysteme beschreiben ein Softwaresystem bei welchem die einwandfreie Funktionsweise auch von der Zeit zwischen den Auftreten eines Stimulus und der Durchführung der entsprechenden Antwort abhängig ist. Hierbei wird zwischen einem weichen und einem harten Echtzeitsystem unterschieden.
+Echtzeitsysteme beschreiben ein Softwaresystem bei welchem die einwandfreie Funktionsweise auch von der Zeit zwischen dem Auftreten eines Stimulus und der Durchführung der entsprechenden Antwort abhängig ist. Hierbei wird zwischen einem weichen und einem harten Echtzeitsystem unterschieden.
 
 \section{Bedienoberflächen}
-Bei der Bedieneroberfläche sind drei wichtig Punkte zu beachten. Punkt eins sind die Anforderungen, eine Oberfläche sollte so aufgebaut sein das sie den Anforderungen entspricht. Punkt zwei ist die Gestaltung. Eine Oberfläche sollte nach den wünschen der Anwender gestaltet werden. Punkt drei ist der Entwurfsprozess. Dieser sollte in Zusammenarbeit mit dem Kunden erarbeitet und durchgeführt werden.
+Bei der Bedieneroberfläche sind drei wichtig Punkte zu beachten. Punkt eins ist die Anforderung, dass eine Oberfläche so aufgebaut ist, dass sie den Anforderungen entspricht. Punkt zwei ist die Gestaltung. Eine Oberfläche sollte nach den wünschen der Anwender gestaltet werden. Punkt drei ist der Entwurfsprozess. Dieser sollte in Zusammenarbeit mit dem Kunden erarbeitet und durchgeführt werden.
 
 \section{Objekt-orientierter Entwurf}
 Der Objekt orientierte Entwurf ist untergliedert in drei Phasen.
@@ -82,7 +81,7 @@ Um Fehler zu erkennen, stehen folgende Techniken zur Verfügung:
 
 \subsection{Fehlervermeidung}
 Die Fehlervermeidung beginnt bereits bei den Anforderungen. Diese müssen genau inspiziert werden. Auch ein Anforderungsmanagement ist notwendig, da sich Anforderungen ändern.
-Ebenfalls wichtig ist, dass mindestens ein Vier-Augen-Prinzip beim der Codeimplementierung und dem Entwurf verfolgt wird. Des Weiteren gilt es Tests zu planen und zu managen. Auch welche Konfigurationen erstellt und ausgeliefert werden, muss klar sein.
+Ebenfalls wichtig ist, dass mindestens ein Vier-Augen-Prinzip bei der Codeimplementierung und dem Entwurf verfolgt wird. Des Weiteren gilt es Tests zu planen und zu managen. Auch welche Konfigurationen erstellt und ausgeliefert werden, muss klar sein.
 
 \subsubsection{Sichere Programmierung}
 Im Rahmen der sicheren Programmierung, sind mögliche Gefahrenquellen wie zum Beispiel Gotos, Rundungsfehler von Gleitkommazahlen, Pointer, dynamische Speicherallokierung, Parallelität, Rekursionen, Interrupts, Vererbung, Aliasing, sowie keine Überprüfung von Arraygrenzen und Konfigurationsdaten. 
@@ -110,9 +109,9 @@ Eine andere Variante ist die Verwendung von sogenannten Wiederherstellungsblöck
 Wartung bedeutet nicht gleich Fehlerbehebung. Sie macht nur 17\% bei der Wartung aus. Circa 65\% machen Erweiterungen aus und weitere 18\% dies Softwareanpassung an z.B. neue Hardware.
 
 \subsection{Wartungsaufwand}
-Oftmals wird in der Praxis das Entwicklerteam nach dem Release auf ein neues Projekt angesetzt und ein anderes Team liest sich in die Software ein und wartet sie dann bzw. die Wartung wird an eine andere Firma übertragen. Das ist unter anderem ein Grund für hohen Wartungsaufwand. Oft spielen auch die Fähigkeiten (z.B. mangelnde Erfahrungen im Anwendungsgebiet, der eingesetzten Technologie) der Entwickler, veraltete/fehlerhafte/nicht vorhandene Dokumentationen oder fehlendes Konfigurationsmanagement eine entscheidende Rolle.
+Oftmals wird in der Praxis das Entwicklerteam nach dem Release auf ein neues Projekt angesetzt und ein anderes Team liest sich in die Software ein und wartet sie dann bzw. die Wartung wird an eine andere Firma übertragen. Das ist unter anderem ein Grund für hohen Wartungsaufwand. Oft spielen auch die Fähigkeiten (z.B. mangelnde Erfahrungen im Anwendungsgebiet oder der eingesetzten Technologie) der Entwickler, veraltete/fehlerhafte/nicht vorhandene Dokumentationen oder fehlendes Konfigurationsmanagement eine entscheidende Rolle.
 
-Ebenfalls wichtige Einflussgrößen sind die Anzahl und Komplexität der Schnittstellen, die Anzahl der veränderlichen Anforderungen und die Geschäftsprozesse, in denen das system verwendet wird.
+Ebenfalls wichtige Einflussgrößen sind die Anzahl und Komplexität der Schnittstellen, die Anzahl der veränderlichen Anforderungen und die Geschäftsprozesse, in denen das System verwendet wird.
 
 \subsection{Weiterentwicklungsprozesse}
 Die hier angeführt Grafik verdeutlicht einen Prozess zur Software Weiterentwicklung. Es zeigt den Prozess von Sommerville 
@@ -122,7 +121,7 @@ Die hier angeführt Grafik verdeutlicht einen Prozess zur Software Weiterentwick
 \caption{Grundprozesse nach Sommerville}
 \end{figure}
 
-Bei der Weiterentwicklung ist vor allem das Ermitteln von Änderungen ein wichtiges Thema 
+Bei der Weiterentwicklung ist vor allem das Ermitteln von Änderungen ein wichtiges Thema.
 
 \begin{figure}[hbtp]
 \centering
@@ -130,6 +129,4 @@ Bei der Weiterentwicklung ist vor allem das Ermitteln von Änderungen ein wichti
 \caption{Änderungsermittlungsprozess nach Sommerville}
 \end{figure}
 
-Dabei ist zu beobachten, dass es manchmal von nöten ist schnell Änderungen durchzuführen. Hierbei helfen natürlich gute Prozesse für die Weiterentwicklung.
-
-Seite 35-39  (excl. Reengineering)
+Dabei ist zu beobachten, dass es manchmal von Nöten ist schnell Änderungen durchzuführen. Hierbei helfen natürlich gute Prozesse für die Weiterentwicklung.

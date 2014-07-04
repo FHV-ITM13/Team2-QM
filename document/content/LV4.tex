@@ -2,13 +2,13 @@
 \section{Dokumentation und Verwaltung}
 \subsection{Pflichtenheft}
 Das Pflichtenheft dient zur Zusammenstellung der vollständigen und detaillierten Benutzer- und Systemanforderungen. Wichtig ist, dass das Pflichtenheft vollständig ist, wobei dieses Ziel nur sehr schwer zu erreichen ist. Bei Projekte der Europäischen Union ist es sogar nicht mehr erlaubt Änderungen am Pflichtenheft nach Vertragsabschluss durchzuführen. Dies ist durch ein Wettbewerbsgesetz geregelt. 
-\linebreak 
+\\\\
 Ein Pflichtenheft kann aus mehr als einem Dokument bestehen und wird  für  Kunden, Manager, Entwickler, Tester, Warter und die Juristen geschrieben. 
-\linebreak
+\\\\
 Ein beliebter Trick in diversen Ländern ist es, das Pflichtenheft via E-Mail abzuändern. Wenn diese Änderung allerdings nicht innerhalb von 14 Tagen widerrufen wird, dann ist sie Bestandteil vom Vertrag und muss entwickelt werden. Das gleiche gilt für Besprechungen, die schriftlich Protokolliert werden. Sollten diese Änderungen dann nicht berücksichtigt werden, kann ein Rechtsstreit eintreten.
-\linebreak
-Im Pflichtenheft erfolgt eine Klassifizierungen der Informationen hinsichtlich der Anforderungen (mandatory requirements), Wünsche (optional requirements), informative Bestandteile (dienen zum besseren Verständnis, sind unverbindliche Informationen) und Warnungen (Abbildungen, Tabellen, Anhänge als informative Bestandteile). Um informative Bestandteile wie ein Anhang zu einem vertraglicher Bestandteil zu machen, muss es mit Normative gekennzeichnet werden.
-\linebreak
+\\\\
+Im Pflichtenheft erfolgt eine Klassifizierungen der Informationen hinsichtlich der Anforderungen (mandatory requirements), Wünsche (optional requirements), informative Bestandteile (dienen zum besseren Verständnis, sind unverbindliche Informationen) und Warnungen (Abbildungen, Tabellen, Anhänge als informative Bestandteile). Um informative Bestandteile wie ein Anhang zu einem vertraglichen Bestandteil zu machen, muss es mit Normative gekennzeichnet werden.
+\\\\
 Der Aufbau vom Pflichtenheft kann auch nach vordefinierten Normen und Standards erfolgen. Ein Beispiel für eine solche Norm ist die IEEE/ANSI 830-1998 Norm. Wichtig ist das auch die Normen und Standards von Referenzen zum Bestandteil des Vertrages werden.
 
 \section{Spezifikation kritischer Systeme}
@@ -20,19 +20,20 @@ Funktionalen Anforderungen unterstützen Definitionen von  Funktionen zur Fehler
 
 \subsection{Risikomanagement}
 Beim Risikomanagement werden Gefahren bestimmt, klassifiziert und versucht deren Risiko zu verringern.
-\linebreak
+\\\\
 Prinzipiell gelten Murphy's Gesetze:
-"Alles, was schiefgehen kann, wird irgendwann einmal schiefgehen."
-"Alles, was schiefgehen kann, wird genau dann schiefgehen, wenn es den maximalen Schaden verursacht."
-oder Wenzels Korollar dazu
-"Murphy war ein Optimist."
-\linebreak
+\begin{itemize}
+\item Alles, was schiefgehen kann, wird irgendwann einmal schiefgehen.
+\item Alles, was schiefgehen kann, wird genau dann schiefgehen, wenn es den maximalen Schaden verursacht.
+\item oder Wenzels Korollar dazu: Murphy war ein Optimist.
+\end{itemize}
+
 Das Ziel beim Risikomanagement ist es, Risiken zu erkennen und dessen Auswirkungen zu minimieren. Risiken entstehen prinzipiell dort, wo Systemkomponenten aufeinandertreffen oder die Umwelt Einflüsse auf das System hat. Entgegenwirken kann man durch erfahrene Entwickler, Berater oder Fachleute des Anwendungsgebiets (siehe witziges Beispiel Ölschraube bei Scania).
-\linebreak
+\\\\
 Bei der Risikoanalyse und der Risikoklassifizierung spielen die Begriffe Unfallwahrscheinlichkeit, Schadenswahrscheinlichkeit und Schadenshöhe eine wichtige Rolle. Durch die Klassifizierung kann man  abschätzen, ob ein Risiko vernachlässigbar ist oder ob es unannehmbar ist. Unannehmbare Risiken verursachen große Schaden, haben eine hohe Schadenswahrscheinlichkeit und sollten unter allen Umständen versucht werden zu vermeiden.
-\linebreak
+\\\\
 Um herauszufinden woher ein Risiko kommt wird es zerlegt um die Ursache für das Risiko zu entdecken. Hierfür gibt es viele verschiedene Techniken wie Reviews, Checklisten, Petri-Netze, Fehlerbaum sowie einige andere Techniken.
-\linebreak
+\\\\
 Um die Risiken minimieren zu können, werden in der Praxis die Techniken zur Risikovermeidung-, Risiko-Erkennung- und die Risikobeseitigungen- sowie die Schadensbegrenzungsstrategie kombiniert.
 
 \subsection{Betriebssicherheit}
@@ -47,11 +48,11 @@ Wichtig ist es das System in Hinsicht auf dessen Betrieb zu sichern. Vor allem S
 \end{itemize}
 
 \subsection{Systemsicherheit}
-Bei der Systemsicherheit spielen vor allem die Bedrohungen eine wichtige Rolle. Die Bedrohungen können dabei in Kategorien unterteilt werden. (Direkte Bedrohungen, Indirekte Bedrohungen, etc.). Vor allem die Monopolartige Stellung einiger Unternehmen führt dazu das Sicherheitslücken im großen Stil auftreten können. Zudem gibt es keine 100% Sicherheit, es gibt nur gute Sicherheitsmethoden. Bei der Systemsicherheit geht es vorallem um das Vermeiden von Schäden durch unberechtigte Personen. 
+Bei der Systemsicherheit spielen vor allem die Bedrohungen eine wichtige Rolle. Die Bedrohungen können dabei in Kategorien unterteilt werden (direkte Bedrohungen, indirekte Bedrohungen, etc.). Vor allem die monopolartige Stellung einiger Unternehmen führt dazu das Sicherheitslücken im großen Stil auftreten können. Zudem gibt es keine 100\% Sicherheit, es gibt nur gute Sicherheitsmethoden. Bei der Systemsicherheit geht es vor allem um das Vermeiden von Schäden durch unberechtigte Personen. 
 
 \subsection{Zuverlässigkeit}
 Damit ein System zuverlässig ist, müssen sowohl die Hardware als auch die Software und die Benutzer zuverlässig sein. Die Zuverlässigkeit einer Software ist messbar. Dabei werden Messwerte bezüglich Systemfehler, Zeit zwischen Systemfehlern und ähnlichem verwendet. Vor allem die Zeit zwischen Systemfehler und Wiederverfügbarkeit des Systems ist wichtig für die Aussage über die Zuverlässigkeit eines Systems.
-\linebreak
+\\\\
 Die Vorgehensweise bei der Zuverlässigkeitsspezifikation  ist es die möglichen Systemfehler zu ermitteln, deren Auswirkungen zu analysieren und mögliche Vorkehrungen zur Beseitigung dieser Risiken zu realisieren. Besonders wichtig ist es allerdings zu berücksichtigen, dass extreme Zuverlässigkeit nicht testbar ist.
 
 \subsection{Formale Spezifikationsmethoden}
